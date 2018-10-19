@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lz.proxylib" >
+    <application>
+        <activity android:name=".ProxyActivity"/>
+    </application>
+</manifest>
