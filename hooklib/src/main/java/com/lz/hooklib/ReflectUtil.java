@@ -48,6 +48,9 @@ public class ReflectUtil {
 
             sActivityInstrumentationField = Activity.class.getDeclaredField(FIELD_mInstrumentation);
             sActivityInstrumentationField.setAccessible(true);
+
+
+
             return true;
         } catch (ClassNotFoundException
                 | NoSuchMethodException

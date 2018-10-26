@@ -33,13 +33,14 @@ public class LifeCircleController implements Pluginable {
         }
 
     }
+
     private Object loadPluginable(ClassLoader classLoader, String pluginActivityClass)
             throws Exception {
         Class<?> pluginClz = classLoader.loadClass(pluginActivityClass);
 
-        Constructor<?> constructor = pluginClz.getConstructor(new Class[] {});
+        Constructor<?> constructor = pluginClz.getConstructor(new Class[]{});
         constructor.setAccessible(true);
-        return constructor.newInstance(new Object[] {});
+        return constructor.newInstance(new Object[]{});
     }
 
     @Override
@@ -58,12 +59,14 @@ public class LifeCircleController implements Pluginable {
 
     @Override
     public void onStop() {
-        mPlugin.onStop();
+        if (mPlugin != null)
+            mPlugin.onStop();
     }
 
     @Override
     public void onPause() {
-        mPlugin.onPause();
+        if (mPlugin != null)
+            mPlugin.onPause();
     }
 
     @Override

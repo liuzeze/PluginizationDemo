@@ -1,6 +1,7 @@
 package com.lz.proxylib;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -62,5 +63,13 @@ public class ProxyActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mPluginController.onDestroy();
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        Intent intent1 = new Intent(this, ProxyActivity.class);
+        intent1.putExtra(ProxyConstants.PLUGIN_CLASS_NAME, intent.getStringExtra(ProxyConstants.PLUGIN_CLASS_NAME));
+        intent1.putExtra(ProxyConstants.PACKAGE_NAME, "com.lz.plugin");
+        super.startActivity(intent1);
     }
 }

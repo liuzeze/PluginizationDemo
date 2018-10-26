@@ -49,7 +49,7 @@ public class HookedInstrumentation extends Instrumentation implements Handler.Ca
                     contextThread, token, target, intent, requestCode, options);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("do not support!!!" + e.getMessage());
+            throw new RuntimeException("do not support!!!" + e.getLocalizedMessage());
         }
     }
 
